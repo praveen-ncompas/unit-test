@@ -11,7 +11,7 @@ test("Initial Conditions", () => {
   });
   expect(checkbox).toBeInTheDocument();
   const submitButton = screen.getByRole("button", {
-    name: "comment",
+    name: "Add Comment",
     exact: false,
   });
   expect(submitButton).toBeDisabled();
@@ -23,19 +23,22 @@ test("Enable submit button on type and checkbox click", async () => {
     exact: false,
   });
   const submitButton = screen.getByRole("button", {
-    name: "comment",
+    name: "Add Comment",
     exact: false,
   });
   const commentInput = screen.getByPlaceholderText("Write your comment here", {
     exact: false,
   });
 
-  //fireEvent.change(commentInput,{target:{value:"something"}})
-  await userEvent.type(commentInput, "something");
-  await userEvent.click(checkbox);
+  fireEvent.change(commentInput, { target: { value: "something" } });
+  fireEvent.click(checkbox);
+  //   await userEvent.type(commentInput, "something");
+  //   await userEvent.click(checkbox);
 
   expect(submitButton).toBeEnabled();
 
-  await userEvent.click(checkbox);
+  // await userEvent.click(checkbox);
+  fireEvent.click(checkbox);
+
   expect(submitButton).toBeDisabled();
 });
