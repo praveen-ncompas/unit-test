@@ -17,7 +17,12 @@ const CommetList = ({ setComments, allcomments }) => {
           return (
             <li key={item.id} className="list-item">
               <h3>{item.text}</h3>
-              <button onClick={() => deleteComment(item.id)}>Delete</button>
+              <button
+                data-testid={`delete-${item.id}`}
+                onClick={() => deleteComment(item.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}

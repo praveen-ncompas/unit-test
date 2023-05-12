@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import CommentForm from "../components/CommentForm";
-import userEvent from "@testing-library/user-event";
+// import userEvent from "@testing-library/user-event";
 
 test("Initial Conditions", () => {
   render(<CommentForm />);
@@ -32,8 +32,8 @@ test("Enable submit button on type and checkbox click", async () => {
 
   fireEvent.change(commentInput, { target: { value: "something" } });
   fireEvent.click(checkbox);
-  //   await userEvent.type(commentInput, "something");
-  //   await userEvent.click(checkbox);
+  // await userEvent.type(commentInput, "something");
+  // await userEvent.click(checkbox);
 
   expect(submitButton).toBeEnabled();
 
