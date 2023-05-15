@@ -6,7 +6,7 @@ const CommetList = ({ setComments, allcomments }) => {
   }
 
   const deleteComment = async (id) => {
-    setComments((prev) => [...prev].filter((item) => item.id !== id));
+    setComments(allcomments.filter((item) => item.id !== id));
   };
 
   return (
